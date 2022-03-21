@@ -1,6 +1,5 @@
 package cajaregistradora;
 
-
 import javax.swing.JOptionPane;
 
 public class CajaRegistradora {
@@ -14,14 +13,13 @@ public class CajaRegistradora {
             "1000366173",
             "2001",
             "tendero1",
-            "123",
+            "12345",
             "ADMIN");
     static Usuario clientes = new Usuario();
     
     public static void main(String[] args) {
         //Genera un Mensaje de bienvenida
-        JOptionPane.showMessageDialog(null, "Bienvenido ala tienda Pepitos S.A.S", "Pepitos S.A.S", 1);
-        
+        JOptionPane.showMessageDialog(null, "Bienvenido a la tienda Pepitos S.A.S", "Pepitos S.A.S", 1);
         //Genera un ciclo que permite repetir el inicio de sesion hasta que este sea correcto
         do{
             String textoUsuario = JOptionPane.showInputDialog(null, "Ingrese Usuario: ", "Pepitos S.A.S", 3);
@@ -39,11 +37,8 @@ public class CajaRegistradora {
                 String mensajeOpciones = "Ingrese una opción \n"
                         +  "1. Registrar Venta \n"
                         + " 2. Registrar Clientes \n"
-                        + " 3. Registrar Producto \n"
-                        + " 4. Ver productos \n"
-                        + " 5. Ver Ventas \n"
-                        + " 6. Ver Clientes \n"
-                        + " 7. Salir del Programa \n";
+                        + " 3. Ver Clientes \n"
+                        + " 4. Salir del Programa \n";
                 //Petición de la opción a seleccionar
                 String opcion = JOptionPane.showInputDialog(null, mensajeOpciones, "Pepitos S.A.S", 1);
                 switch(Integer.parseInt(opcion)){
@@ -70,26 +65,15 @@ public class CajaRegistradora {
                         }
                         
                         //Crear la nueva persona e invocar el metodo que se encarga de añadirlo
-                        clientes = new Usuario(nombres, apellidos, direccion, telefono, correo, identificacion, fechaDeNacimiento);
-                        clientes.registrarCliente();
+                        clientes.registrarCliente(nombres, apellidos, direccion, telefono, correo, identificacion, fechaDeNacimiento);
                         break;
                     case 3:
-                        //TODO: realizar el registro de producto
-                        break;
-                    case 4:
-                        //TODO: mostrar todos los productos registrados con su cantidad
-                        break;
-                    case 5:
-                        //TODO: mostrar todas las ventas realizadas
-                        break;
-                    case 6:
                         //Se invoca el metodo para llamar a los clientes que se encuentran registrados
                         clientes.obtenerTodosLosClientes();
                         break;
-                    case 7:
+                    case 4:
                         //Permite invocar el metodo que cierra la sesión
                         user1.cerrarSesion();
-                        break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opción Invalida", "Pepitos S.A.S", 0);
                         break;
