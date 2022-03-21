@@ -1,5 +1,7 @@
 package cajaregistradora;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Usuario extends Persona{
@@ -7,19 +9,33 @@ public class Usuario extends Persona{
     private String usuario;
     private String clave;
     private String tipoUsuario;
-    private boolean ingreso;        
+    private boolean ingreso;    
+    public List<Usuario> userList = new ArrayList();    
     
-    public Usuario(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String usuario, String clave, String tipoUsuario){
+    public Usuario(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String fechaDeNacimiento, String usuario, String clave, String tipoUsuario){
         setNombres(nombres);
         setApellidos(apellidos);
         setDireccion(direccion);
         setTelefono(telefono);
         setEmail(email);
         setIdentificacion(identificacion);
+        setFechaNacimiento(fechaDeNacimiento);
         setUsuario(usuario);
         setClave(clave);
         setTipoUsuario(tipoUsuario);
     }
+    
+    public Usuario(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String fechaDeNacimiento){
+        setNombres(nombres);
+        setApellidos(apellidos);
+        setDireccion(direccion);
+        setTelefono(telefono);
+        setEmail(email);
+        setIdentificacion(identificacion);
+        setFechaNacimiento(fechaDeNacimiento);
+    }
+
+    public Usuario() {}
 
     //Obtener nombre de usuario
     public String getUsuario() {
@@ -76,6 +92,37 @@ public class Usuario extends Persona{
             setIngreso(false);
         }else{
             setIngreso(true);
+        }
+    }
+    
+    public void registrarCliente(){
+        userList.add(new Usuario(
+            getNombres(),
+            getApellidos(),
+            getDireccion(),
+            getTelefono(),
+            getEmail(),
+            getIdentificacion(),
+            getFechaNacimiento(),
+            getUsuario(),
+            getClave(),
+            getTipoUsuario())
+        );
+        
+        JOptionPane.showMessageDialog(null, "El Usuario Se registro correctamente", "Pepitos S.A.S", 1);
+    }
+    
+    public void obtenerTodosLosClientes(){
+        for (int i = 0; i < userList.size(); i++) {
+            String textoUsuarios = "\n nombre: "+userList.get(i).getNombres()
+                    +"\n apellidos: "+userList.get(i).getApellidos()
+                    +"\n dirección: "+userList.get(i).getDireccion()
+                    +"\n telefono: "+userList.get(i).getTelefono()
+                    +"\n email: "+userList.get(i).getEmail()
+                    +"\n identificacion: "+userList.get(i).getIdentificacion()
+                    +"\n usuario: "+userList.get(i).getUsuario()
+                    +"\n añoDeNacimiento: "+userList.get(i).getUsuario();
+            JOptionPane.showMessageDialog(null, textoUsuarios, "Pepitos S.A.S", 1);
         }
     }
 }

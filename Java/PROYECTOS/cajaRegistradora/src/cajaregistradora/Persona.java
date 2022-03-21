@@ -6,6 +6,7 @@ public class Persona {
     private String direccion;
     private String telefono;
     private String email;
+    private String fechaNacimiento;
     private String identificacion;
     
     //Obtener nombres de la persona
@@ -37,6 +38,11 @@ public class Persona {
     public String getTelefono() {
         return telefono;
     }
+
+    //Obtener el año de nacimiento
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
     
     //Cambiar nombre de la persona
     public void setNombres(String nombres) {
@@ -66,5 +72,10 @@ public class Persona {
     //cambiar identificación de la persona
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
+    }
+
+    //Cambiar fecha de nacimiento
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 }
