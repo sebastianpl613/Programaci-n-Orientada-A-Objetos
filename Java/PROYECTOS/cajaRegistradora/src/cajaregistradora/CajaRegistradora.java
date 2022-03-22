@@ -44,6 +44,124 @@ public class CajaRegistradora {
                 switch(Integer.parseInt(opcion)){
                     case 1:
                         //TODO: realizar el registro de venta
+                        String mensajeCategorias = "Ingrese una opción \n"
+                        +  "1. Lacteos \n"
+                        + " 2. Frutas \n"
+                        + " 3. Verduras \n"
+                        + " 4. Abarrotes \n";
+                        String categorias = JOptionPane.showInputDialog(null, mensajeCategorias);                      
+                        switch(categorias){
+                            case "Lacteos":
+                                System.out.println("Entre a lacteos");
+                                    String mensajeLacteos= "Ingrese una opción \n"
+                                    +  "1. Leche  $2,500 \n"
+                                    + " 2. Queso  $4,000\n"
+                                    + " 3. Kumis  $2,000\n"
+                                    + " 4. Crema de Leche  $3,600\n";
+                                String productoLacteos = JOptionPane.showInputDialog(null, mensajeLacteos);                      
+                                switch(productoLacteos){
+                                    case "Leche":
+                                        System.out.println("Entre a leche");
+                                        break; 
+                                    case "Queso":
+                                        System.out.println("Entre a queso");
+                                        break;
+                                    case "Kumis":
+                                        System.out.println("Entre a Kumis");
+                                        break;
+                                    case "Crema de Leche":
+                                        System.out.println("Entre a Crema de Leche");
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                        break;
+                                }
+                                break; 
+                                
+                            case "Frutas":
+                                System.out.println("Entre a Frutas");
+                                String mensajeFrutas= "Ingrese una opción \n"
+                                    +  "1. Banano  $1,000 \n"
+                                    + " 2. Manzana  $1,500\n"
+                                    + " 3. Pera  $900\n"
+                                    + " 4. Papaya  $2,000\n";
+                                String productoFrutas = JOptionPane.showInputDialog(null, mensajeFrutas);                      
+                                switch(productoFrutas){
+                                    case "Banano":
+                                        System.out.println("Entre a banano");
+                                        break; 
+                                    case "Manzana":
+                                        System.out.println("Entre a Manzana");
+                                        break;
+                                    case "Pera":
+                                        System.out.println("Entre a Pera");
+                                        break;
+                                    case "Papaya":
+                                        System.out.println("Entre a Crema de Papaya");
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                        break;
+                                    }
+                                break;
+                                
+                            case "Verduras":
+                                System.out.println("Entre a verduras");
+                                String mensajeVerduras= "Ingrese una opción \n"
+                                    +  "1. Lechuga  $2,000 \n"
+                                    + " 2. Tomate  $500\n"
+                                    + " 3. Cebolla  $400\n"
+                                    + " 4. Arveja  $1,000\n";
+                                String productoVerduras = JOptionPane.showInputDialog(null, mensajeVerduras);                      
+                                switch(productoVerduras){
+                                    case "Lechuga":
+                                        System.out.println("Entre a Lechuga");
+                                        break; 
+                                    case "Tomate":
+                                        System.out.println("Entre a Tomate");
+                                        break;
+                                    case "Cebolla":
+                                        System.out.println("Entre a Cebolla");
+                                        break;
+                                    case "Arveja":
+                                        System.out.println("Entre a Crema de Arveja");
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                        break;
+                                    }
+                                break;
+                                
+                            case "Abarrotes":
+                                System.out.println("Entre a abarrotes");
+                                String mensajeAbarrotes= "Ingrese una opción \n"
+                                    +  "1. Lechuga  $2,000 \n"
+                                    + " 2. Tomate  $500\n"
+                                    + " 3. Cebolla  $400\n"
+                                    + " 4. Arveja  $1,000\n";
+                                String productoAbarrotes = JOptionPane.showInputDialog(null, mensajeAbarrotes);                      
+                                switch(productoAbarrotes){
+                                    case "Lechuga":
+                                        System.out.println("Entre a Lechuga");
+                                        break; 
+                                    case "Tomate":
+                                        System.out.println("Entre a Tomate");
+                                        break;
+                                    case "Cebolla":
+                                        System.out.println("Entre a Cebolla");
+                                        break;
+                                    case "Arveja":
+                                        System.out.println("Entre a Crema de Arveja");
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                        break;
+                                }
+                                break; 
+                            default:
+                                System.out.println("Entre a default");
+                                break;
+                        }
                         break;
                     case 2:
                         //Solicitar datos para la creeación del nuevo cliente
