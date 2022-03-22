@@ -10,7 +10,7 @@ public class Usuario extends Persona{
     private String clave;
     private String tipoUsuario;
     private boolean ingreso;    
-    public List<Usuario> userList = new ArrayList();    
+    private List<Usuario>userList;    
     
     public Usuario(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String fechaDeNacimiento, String usuario, String clave, String tipoUsuario){
         setNombres(nombres);
@@ -23,6 +23,7 @@ public class Usuario extends Persona{
         setUsuario(usuario);
         setClave(clave);
         setTipoUsuario(tipoUsuario);
+        this.userList = new ArrayList();
     }
     
     public Usuario(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String fechaDeNacimiento){
@@ -33,9 +34,17 @@ public class Usuario extends Persona{
         setEmail(email);
         setIdentificacion(identificacion);
         setFechaNacimiento(fechaDeNacimiento);
+        this.userList = new ArrayList();
     }
 
-    public Usuario() {}
+    public Usuario() {
+        this.userList = new ArrayList();
+    }
+
+    //Obtener Lista de usuarios
+    public List<Usuario> getUserList() {
+        return userList;
+    }
 
     //Obtener nombre de usuario
     public String getUsuario() {
@@ -75,6 +84,10 @@ public class Usuario extends Persona{
     public void setIngreso(boolean ingreso) {
         this.ingreso = ingreso;
     }
+
+    public void setUserList(List<Usuario> userList) {
+        this.userList = userList;
+    }
     
     public void iniciarSesion(String usuario, String clave){
         if(usuario.equals(getUsuario()) && clave.equals(getClave())){
@@ -95,18 +108,15 @@ public class Usuario extends Persona{
         }
     }
     
-    public void registrarCliente(){
+    public void registrarCliente(String nombres, String apellidos, String direccion, String telefono, String email, String identificacion, String fechaDeNacimiento){
         userList.add(new Usuario(
-            getNombres(),
-            getApellidos(),
-            getDireccion(),
-            getTelefono(),
-            getEmail(),
-            getIdentificacion(),
-            getFechaNacimiento(),
-            getUsuario(),
-            getClave(),
-            getTipoUsuario())
+            nombres,
+            apellidos,
+            direccion,
+            telefono,
+            email,
+            identificacion,
+            fechaDeNacimiento)
         );
         
         JOptionPane.showMessageDialog(null, "El Usuario Se registro correctamente", "Pepitos S.A.S", 1);
@@ -120,7 +130,6 @@ public class Usuario extends Persona{
                     +"\n telefono: "+userList.get(i).getTelefono()
                     +"\n email: "+userList.get(i).getEmail()
                     +"\n identificacion: "+userList.get(i).getIdentificacion()
-                    +"\n usuario: "+userList.get(i).getUsuario()
                     +"\n añoDeNacimiento: "+userList.get(i).getUsuario();
             JOptionPane.showMessageDialog(null, textoUsuarios, "Pepitos S.A.S", 1);
         }
