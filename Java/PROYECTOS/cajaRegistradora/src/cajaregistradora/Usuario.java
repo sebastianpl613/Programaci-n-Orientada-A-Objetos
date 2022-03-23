@@ -130,8 +130,22 @@ public class Usuario extends Persona{
                     +"\n telefono: "+userList.get(i).getTelefono()
                     +"\n email: "+userList.get(i).getEmail()
                     +"\n identificacion: "+userList.get(i).getIdentificacion()
-                    +"\n añoDeNacimiento: "+userList.get(i).getUsuario();
+                    +"\n año de nacimiento: "+userList.get(i).getFechaNacimiento();
             JOptionPane.showMessageDialog(null, textoUsuarios, "Pepitos S.A.S", 1);
         }
     }
+    
+    public String obtenerCliente(int cliente){
+        String infoUsuarios="";
+        infoUsuarios += "nombres: "+userList.get(cliente).getNombres()+"\n";
+        infoUsuarios += "apellidos: "+userList.get(cliente).getApellidos()+"\n";
+        infoUsuarios += "dirección: "+userList.get(cliente).getDireccion()+"\n";
+        infoUsuarios += "telefono: "+userList.get(cliente).getTelefono()+"\n";
+        infoUsuarios += "email: "+userList.get(cliente).getEmail()+"\n";
+        infoUsuarios += "identificacion: "+userList.get(cliente).getIdentificacion()+"\n";
+        infoUsuarios += "año de nacimiento: "+userList.get(cliente).getFechaNacimiento()+"\n";
+        return infoUsuarios;
+         
+    }
+    
 }
