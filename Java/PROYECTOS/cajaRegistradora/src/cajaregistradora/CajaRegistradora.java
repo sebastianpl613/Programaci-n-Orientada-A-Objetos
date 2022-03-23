@@ -237,12 +237,34 @@ public class CajaRegistradora {
                                 siSalirCategoria=true;
                             }
                         }
-                        String mensajeNuevaVenta=" Pepito S.A.S \n" 
+                        String mensajeNuevaVenta=" Pepito S.A.S \n\n"
                                 +"Datos Cliente \n"
+                                +clientes.obtenerCliente(0)+"\n"
                                 +"Productos \n"
                                 +mensajeProductos+"\n"
                                 +"  Total  "+valorTotal;
                         JOptionPane.showMessageDialog(null, mensajeNuevaVenta, "Pepitos S.A.S", 1);
+                        String mensajeMetodoDePago= "Ingrese una opción \n"
+                                        +  "1. Efectivo \n"
+                                        + " 2. Tarjeta de Credito \n";                  
+                        int metodoDePago= Integer.parseInt(JOptionPane.showInputDialog(null, mensajeMetodoDePago, "Pepitos S.A.S", 3));
+                        switch (metodoDePago) {
+                            case 1:
+                                int efectivo= Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el efectivo recibido: ", "Pepitos S.A.S", 3));
+                                int vueltas= valorTotal-efectivo;
+                                JOptionPane.showMessageDialog(null,"total vueltas: "+vueltas);
+                               
+                                break;
+                            case 2:
+                                int tarjetaDeCredito= Integer.parseInt(JOptionPane.showInputDialog(null, "número de la tarjeta: ", "Pepitos S.A.S", 3));
+                                int fechaDeVencimiento= Integer.parseInt(JOptionPane.showInputDialog(null, "fecha de vencimiento: ", "Pepitos S.A.S", 3));
+                                int codigo= Integer.parseInt(JOptionPane.showInputDialog(null, "codigo: ", "Pepitos S.A.S", 3));
+                                JOptionPane.showMessageDialog(null,"Pago procesado...");
+                                break;
+                            default:
+                                throw new AssertionError();
+                        }
+ 
                         break;
                     case 2:
                         //Solicitar datos para la creeación del nuevo cliente
@@ -282,4 +304,5 @@ public class CajaRegistradora {
             JOptionPane.showMessageDialog(null, "Su usuario no esta habilitado", "Pepitos S.A.S", 0);
         }
     }
+    
 }
