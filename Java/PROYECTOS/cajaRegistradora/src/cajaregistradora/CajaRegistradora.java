@@ -264,7 +264,8 @@ public class CajaRegistradora {
                             default:
                                 throw new AssertionError();
                         }
- 
+                         valorTotal=0;
+                         mensajeProductos=" ";
                         break;
                     case 2:
                         //Solicitar datos para la creeación del nuevo cliente
@@ -296,7 +297,7 @@ public class CajaRegistradora {
                         //Permite invocar el metodo que cierra la sesión
                         user1.cerrarSesion();
                     default:
-                        JOptionPane.showMessageDialog(null, "Opción Invalida", "Pepitos S.A.S", 0);
+                        JOptionPane.showMessageDialog(null, "Gracias por comprar con nosotros", "Pepitos S.A.S", 1);
                         break;
                 }
             }
