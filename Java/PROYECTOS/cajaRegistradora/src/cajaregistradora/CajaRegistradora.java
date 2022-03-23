@@ -1,6 +1,5 @@
 package cajaregistradora;
 
-
 import javax.swing.JOptionPane;
 
 public class CajaRegistradora {
@@ -14,14 +13,15 @@ public class CajaRegistradora {
             "1000366173",
             "2001",
             "tendero1",
-            "123",
+            "12345",
             "ADMIN");
     static Usuario clientes = new Usuario();
     
     public static void main(String[] args) {
+        String mensajeProductos="";
+        int valorTotal=0;
         //Genera un Mensaje de bienvenida
-        JOptionPane.showMessageDialog(null, "Bienvenido ala tienda Pepitos S.A.S", "Pepitos S.A.S", 1);
-        
+        JOptionPane.showMessageDialog(null, "Bienvenido a la tienda Pepitos S.A.S", "Pepitos S.A.S", 1);
         //Genera un ciclo que permite repetir el inicio de sesion hasta que este sea correcto
         do{
             String textoUsuario = JOptionPane.showInputDialog(null, "Ingrese Usuario: ", "Pepitos S.A.S", 3);
@@ -39,16 +39,210 @@ public class CajaRegistradora {
                 String mensajeOpciones = "Ingrese una opción \n"
                         +  "1. Registrar Venta \n"
                         + " 2. Registrar Clientes \n"
-                        + " 3. Registrar Producto \n"
-                        + " 4. Ver productos \n"
-                        + " 5. Ver Ventas \n"
-                        + " 6. Ver Clientes \n"
-                        + " 7. Salir del Programa \n";
+                        + " 3. Ver Clientes \n"
+                        + " 4. Salir del Programa \n";
                 //Petición de la opción a seleccionar
                 String opcion = JOptionPane.showInputDialog(null, mensajeOpciones, "Pepitos S.A.S", 1);
                 switch(Integer.parseInt(opcion)){
                     case 1:
                         //TODO: realizar el registro de venta
+                        boolean siSalirCategoria=false; 
+                        while(!siSalirCategoria){
+                            String mensajeCategorias = "Ingrese una opción \n"
+                            +  "1. Lacteos \n"
+                            + " 2. Frutas \n"
+                            + " 3. Verduras \n"
+                            + " 4. Abarrotes \n";
+                            String categorias = JOptionPane.showInputDialog(null, mensajeCategorias);                      
+                            switch(categorias){
+                                case "Lacteos":
+                                    System.out.println("Entre a lacteos");
+                                        String mensajeLacteos= "Ingrese una opción \n"
+                                        +  "1. Leche  $2,500 \n"
+                                        + " 2. Queso  $4,000\n"
+                                        + " 3. Kumis  $2,000\n"
+                                        + " 4. Crema de Leche  $3,600\n";
+                                    String productoLacteos = JOptionPane.showInputDialog(null, mensajeLacteos);                      
+                                    switch(productoLacteos){
+                                        case "Leche":
+                                            System.out.println("Entre a leche");
+                                            int cantidadLeche = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalLeche=cantidadLeche*2500;
+                                            valorTotal+=totalLeche;
+                                            mensajeProductos+=cantidadLeche+"  Leche  "+totalLeche+" \n";
+                                            break; 
+                                        case "Queso":
+                                            System.out.println("Entre a queso");
+                                            int cantidadQueso = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalQueso=cantidadQueso*4000;
+                                            valorTotal+=totalQueso;
+                                            mensajeProductos+=cantidadQueso+"  Queso  "+totalQueso+" \n";
+                                            break;
+                                        case "Kumis":
+                                            System.out.println("Entre a Kumis");
+                                            int cantidadKumis = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalKumis=cantidadKumis*2000;
+                                            valorTotal+=totalKumis;
+                                            mensajeProductos+=cantidadKumis+"  Kumis  "+totalKumis+" \n";
+                                            break;
+                                        case "Crema de Leche":
+                                            System.out.println("Entre a Crema de Leche");
+                                            int cantidadCrema = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalCrema=cantidadCrema*3600;
+                                            valorTotal+=totalCrema;
+                                            mensajeProductos+=cantidadCrema+"  Crema de Leche  "+totalCrema+" \n";
+                                            break;
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                            break;
+                                    }
+                                    break; 
+
+                                case "Frutas":
+                                    System.out.println("Entre a Frutas");
+                                    String mensajeFrutas= "Ingrese una opción \n"
+                                        +  "1. Banano  $1,000 \n"
+                                        + " 2. Manzana  $1,500\n"
+                                        + " 3. Pera  $900\n"
+                                        + " 4. Papaya  $2,000\n";
+                                    String productoFrutas = JOptionPane.showInputDialog(null, mensajeFrutas);                      
+                                    switch(productoFrutas){
+                                        case "Banano":
+                                            System.out.println("Entre a banano");
+                                            int cantidadBanano = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalBanano=cantidadBanano*1000;
+                                            valorTotal+=totalBanano;
+                                            mensajeProductos+=cantidadBanano+"  Banano  "+totalBanano+" \n";
+                                            break; 
+                                        case "Manzana":
+                                            System.out.println("Entre a Manzana");
+                                            int cantidadManzana = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalManzana=cantidadManzana*1500;
+                                            valorTotal+=totalManzana;
+                                            mensajeProductos+=cantidadManzana+"  Manzana  "+totalManzana+" \n";
+                                            break;
+                                        case "Pera":
+                                            System.out.println("Entre a Pera");
+                                            int cantidadPera = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalPera=cantidadPera*900;
+                                            valorTotal+=totalPera;
+                                            mensajeProductos+=cantidadPera+"  Pera  "+totalPera+" \n";
+                                            break;
+                                        case "Papaya":
+                                            System.out.println("Entre a Crema de Papaya");
+                                            int cantidadPapaya = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalPapaya=cantidadPapaya*2000;
+                                            valorTotal+=totalPapaya;
+                                            mensajeProductos+=cantidadPapaya+"  Papaya  "+totalPapaya+" \n";
+                                            break;
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                            break;
+                                        }
+                                    break;
+
+                                case "Verduras":
+                                    System.out.println("Entre a verduras");
+                                    String mensajeVerduras= "Ingrese una opción \n"
+                                        +  "1. Lechuga  $2,000 \n"
+                                        + " 2. Tomate  $500\n"
+                                        + " 3. Cebolla  $400\n"
+                                        + " 4. Arveja  $1,000\n";
+                                    String productoVerduras = JOptionPane.showInputDialog(null, mensajeVerduras);                      
+                                    switch(productoVerduras){
+                                        case "Lechuga":
+                                            System.out.println("Entre a Lechuga");
+                                            int cantidadLechuga = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalLechuga=cantidadLechuga*2000;
+                                            valorTotal+=totalLechuga;
+                                            mensajeProductos+=cantidadLechuga+"  Lechuga  "+totalLechuga+" \n";
+                                            break; 
+                                        case "Tomate":
+                                            System.out.println("Entre a Tomate");
+                                            int cantidadTomate = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalTomate=cantidadTomate*500;
+                                            valorTotal+=totalTomate;
+                                            mensajeProductos+=cantidadTomate+"  Tomate  "+totalTomate+" \n";
+                                            break;
+                                        case "Cebolla":
+                                            System.out.println("Entre a Cebolla");
+                                            int cantidadCebolla = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalCebolla=cantidadCebolla*400;
+                                            valorTotal+=totalCebolla;
+                                            mensajeProductos+=cantidadCebolla+"  Cebolla  "+totalCebolla+" \n";
+                                            break;
+                                        case "Arveja":
+                                            System.out.println("Entre a Arveja");
+                                            int cantidadArveja = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalArveja=cantidadArveja*1000;
+                                            valorTotal+=totalArveja;
+                                            mensajeProductos+=cantidadArveja+"  Arveja  "+totalArveja+" \n";
+                                            break;
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                            break;
+                                        }
+                                    break;
+
+                                case "Abarrotes":
+                                    System.out.println("Entre a abarrotes");
+                                    String mensajeAbarrotes= "Ingrese una opción \n"
+                                        +  "1. Arroz  $2,000 \n"
+                                        + " 2. Lentejas  $1500\n"
+                                        + " 3. Frijol  $2400\n"
+                                        + " 4. Aceite  $10,000\n";
+                                    String productoAbarrotes = JOptionPane.showInputDialog(null, mensajeAbarrotes);                      
+                                    switch(productoAbarrotes){
+                                        case "Arroz":
+                                            System.out.println("Entre a Arroz");
+                                            int cantidadArroz = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalArroz=cantidadArroz*2000;
+                                            valorTotal+=totalArroz;
+                                            mensajeProductos+=cantidadArroz+"  Arroz  "+totalArroz+" \n";
+                                            break; 
+                                        case "Lenteja":
+                                            System.out.println("Entre a Lenteja");
+                                            int cantidadLenteja = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalLenteja=cantidadLenteja*1500;
+                                            valorTotal+=totalLenteja;
+                                            mensajeProductos+=cantidadLenteja+"  Lenteja  "+totalLenteja+" \n";
+                                            break;
+                                        case "Frijol":
+                                            System.out.println("Entre a Frijol");
+                                            int cantidadFrijol = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalFrijol=cantidadFrijol*2400;
+                                            valorTotal+=totalFrijol;
+                                            mensajeProductos+=cantidadFrijol+"  Frijol  "+totalFrijol+" \n";
+                                            break;
+                                        case "Aceite":
+                                            System.out.println("Entre a Aceite");
+                                            int cantidadAceite = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite La Cantidad"));
+                                            int totalAceite=cantidadAceite*10000;
+                                            valorTotal+=totalAceite;
+                                            mensajeProductos+=cantidadAceite+"  Aceite  "+totalAceite+" \n";
+                                            break;
+                                        default:
+                                            JOptionPane.showMessageDialog(null, "No se encontro el producto", "Pepitos S.A.S", 1);
+                                            break;
+                                    }
+                                    break; 
+                                default:
+                                    System.out.println("Entre a default");
+                                    break;
+                            }
+                            int opcionSalirCategoria = JOptionPane.showConfirmDialog(null, "¿Desea Seguir Comprando?", "Pepitos S.A.S",JOptionPane.YES_NO_OPTION);
+                            if(opcionSalirCategoria == 0){
+                                siSalirCategoria=false;
+                            }else{
+                                siSalirCategoria=true;
+                            }
+                        }
+                        String mensajeNuevaVenta=" Pepito S.A.S \n" 
+                                +"Datos Cliente \n"
+                                +"Productos \n"
+                                +mensajeProductos+"\n"
+                                +"  Total  "+valorTotal;
+                        JOptionPane.showMessageDialog(null, mensajeNuevaVenta, "Pepitos S.A.S", 1);
                         break;
                     case 2:
                         //Solicitar datos para la creeación del nuevo cliente
@@ -70,26 +264,15 @@ public class CajaRegistradora {
                         }
                         
                         //Crear la nueva persona e invocar el metodo que se encarga de añadirlo
-                        clientes = new Usuario(nombres, apellidos, direccion, telefono, correo, identificacion, fechaDeNacimiento);
-                        clientes.registrarCliente();
+                        clientes.registrarCliente(nombres, apellidos, direccion, telefono, correo, identificacion, fechaDeNacimiento);
                         break;
                     case 3:
-                        //TODO: realizar el registro de producto
-                        break;
-                    case 4:
-                        //TODO: mostrar todos los productos registrados con su cantidad
-                        break;
-                    case 5:
-                        //TODO: mostrar todas las ventas realizadas
-                        break;
-                    case 6:
                         //Se invoca el metodo para llamar a los clientes que se encuentran registrados
                         clientes.obtenerTodosLosClientes();
                         break;
-                    case 7:
+                    case 4:
                         //Permite invocar el metodo que cierra la sesión
                         user1.cerrarSesion();
-                        break;
                     default:
                         JOptionPane.showMessageDialog(null, "Opción Invalida", "Pepitos S.A.S", 0);
                         break;
